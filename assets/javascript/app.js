@@ -31,7 +31,7 @@ function renderButtons() {
     // Then generate buttons for each topic in the array
     var newBtn = $("<button>");
     // Add classes; search btn for searching later, and other classes for just generally making things look nice.
-    newBtn.addClass("search-btn m-3 ");
+    newBtn.addClass("search-btn m-3 btn btn-outline-primary");
     // Adding a data-attribute
     newBtn.attr("data-name", topics[i]);
     // Providing the initial button text
@@ -79,8 +79,12 @@ function writeGifs(data) {
   // takes an array of objects, specifically the "data" array of a giphy API response
   // loop over the array
   for (i = 0; i < data.length; i++) {
+    //make a div for the new gif
+    var gifDiv = $("<div>")
+    gifDiv.addClass("col-12 col-sm-6 col-md-4 mb-3")
+
     // make a new image
-    newGif = $("<img>")
+    var newGif = $("<img>")
     // add the image URL and some classes to the image
     newGif
       .attr({
@@ -88,9 +92,35 @@ function writeGifs(data) {
         "data-still": data[i].images.fixed_height_still.url,
         "data-animate": data[i].images.fixed_height.url,
       })
-      .addClass("m-3 gif")
-    //write the gif to the gif area
-    resultAreaHTML.append(newGif)
+      .addClass("gif")
+    //write the gif to the new div
+    gifDiv.append(newGif)
+
+    //make a div for the gif information
+    var gifInfo = $("<div>")
+    gifInfo.addClass("")
+
+    // //get the gif's name
+    // var gifName = $("<h5>")
+    // gifName
+    //   .addClass("card-title")
+    //   .text(data[i].title)
+    
+    //get the gif's rating
+    var gifRating = $("<span>")
+    gifRating
+      .addClass("")
+      .text("Rating: " + data[i].rating.toUpperCase())
+
+    //add name and rating to the information div
+    gifInfo.append(gifRating)
+
+    //add info to the gif div
+    gifDiv.append(gifInfo)
+
+
+    //write the new div to the gif area
+    resultAreaHTML.append(gifDiv)
   }
 }
 
