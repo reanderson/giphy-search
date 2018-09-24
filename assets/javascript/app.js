@@ -99,12 +99,6 @@ function writeGifs(data) {
     //make a div for the gif information
     var gifInfo = $("<div>")
     gifInfo.addClass("")
-
-    // //get the gif's name
-    // var gifName = $("<h5>")
-    // gifName
-    //   .addClass("card-title")
-    //   .text(data[i].title)
     
     //get the gif's rating
     var gifRating = $("<span>")
