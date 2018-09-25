@@ -91,6 +91,7 @@ function writeGifs(data) {
         "src": data[i].images.fixed_height_still.url,
         "data-still": data[i].images.fixed_height_still.url,
         "data-animate": data[i].images.fixed_height.url,
+        "data-state": "still"
       })
       .addClass("gif")
     //write the gif to the new div
